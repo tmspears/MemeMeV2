@@ -8,11 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     // MARK: variable and constants
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var memeImageView: UIImageView!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
+    
+    let textSettings: [String: Any] = [
+        NSStrokeColorAttributeName: UIColor .black,
+        NSForegroundColorAttributeName: UIColor .white,
+        NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName : -2.0]
     
     // MARK: lifecycle
     override func viewWillAppear(_ animated: Bool) {
@@ -22,7 +30,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        topTextField.delegate = self
+        bottomTextField.delegate = self
+        
+        topTextField.defaultTextAttributes = textSettings
+        bottomTextField.defaultTextAttributes = textSettings
+        
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
+        topTextField.textAlignment = .center
+        bottomTextField.textAlignment = .center
     }
 
 
