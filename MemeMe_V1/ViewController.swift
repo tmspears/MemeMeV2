@@ -24,8 +24,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK: lifecycle
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        unsubscribeFromKeyboardNotifications()
     }
     
     override func viewDidLoad() {
@@ -75,6 +84,40 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: Adjust keyboard
+    
+    func getKeyboardHeight(_ notification: Notification) -> CGFloat {
+        
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
+    }
+    
+    func keyboardWillShow(_ notification: Notification) {
+        
+        // implementation based upon Udacity forum post:
+        // https://discussions.udacity.com/t/better-way-to-shift-the-view-for-keyboardwillshow-and-keyboardwillhide/36558
+        
+        if bottomTextField.isFirstResponder {
+            view.frame.origin.y = getKeyboardHeight(notification) * -1
+        }
+    }
+    
+    func keyboardWillHide(notification: Notification) {
+        if bottomTextField.isFirstResponder {
+            view.frame.origin.y = 0
+        }
+    }
+    
+    func subscribeToKeyboardNotifications() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+    }
     
 }
 
