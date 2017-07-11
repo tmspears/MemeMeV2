@@ -84,8 +84,40 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.dismiss(animated: true, completion: nil)
     }
     
-    // MARK: Adjust keyboard
+    // MARK: Text Field Delegate
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let meme = textField.text {
+            if meme == "TOP" || meme == "BOTTOM" {
+                textField.text = ""
+            }
+        }
+        
+        // subscribe to notification for keyboard dismissal
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
+    }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == topTextField {
+            if textField.text == "" {
+                textField.text = "TOP"
+            }
+        }
+        
+        if textField == bottomTextField {
+            if textField.text == "" {
+                textField.text = "BOTTOM"
+            }
+        }
+        
+        textField.resignFirstResponder()
+        
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+        
+        return true
+    }
+    
+    // MARK: Adjust keyboard
     func getKeyboardHeight(_ notification: Notification) -> CGFloat {
         
         let userInfo = notification.userInfo
@@ -97,7 +129,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // implementation based upon Udacity forum post:
         // https://discussions.udacity.com/t/better-way-to-shift-the-view-for-keyboardwillshow-and-keyboardwillhide/36558
-        
         if bottomTextField.isFirstResponder {
             view.frame.origin.y = getKeyboardHeight(notification) * -1
         }
