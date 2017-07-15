@@ -10,17 +10,29 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
-    // MARK: variable and constants
+    // IB Outlets
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var memeImageView: UIImageView!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var toolBar: UIToolbar!
     
+    
+    // Default Text Settings
     let textSettings: [String: Any] = [
         NSStrokeColorAttributeName: UIColor .black,
         NSForegroundColorAttributeName: UIColor .white,
         NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSStrokeWidthAttributeName : -2.0]
+    
+    // Struct to hold Meme
+    struct Meme {
+        let topText: String
+        let bottomText: String
+        let originalImage: UIImage
+        let savedMeme: UIImage
+    }
     
     // MARK: lifecycle
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +65,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
 
-    // MARK: UI actions
+    // UI Actions
     @IBAction func selectMemeImage(_ sender: Any) {
         
         let selectImageController = UIImagePickerController()
@@ -70,7 +82,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(usePhotoImageController,animated: true, completion: nil)
     }
 
-    // MARK: Image Picker delegate
+    // Image Picker delegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -84,7 +96,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.dismiss(animated: true, completion: nil)
     }
     
-    // MARK: Text Field Delegate
+    // Text Field Delegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if let meme = textField.text {
             if meme == "TOP" || meme == "BOTTOM" {
@@ -117,7 +129,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return true
     }
     
-    // MARK: Adjust keyboard
+    // Adjust Image Position With Keyboard
     func getKeyboardHeight(_ notification: Notification) -> CGFloat {
         
         let userInfo = notification.userInfo
@@ -149,6 +161,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
     }
+    
+    // Store Meme Object
+    
+    func createMemeImage() -> UIImage {
+        
+        // Hide navigation and tool bars
+        navBar.isHidden = true
+        toolBar.isHidden = true
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memeCreated:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        // Show navigation and tool bars again
+        navBar.isHidden = false
+        toolBar.isHidden = false
+        
+        return memeCreated
+    }
+    
+    func tempSaveMeme() {
+    
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memeImageView.image!, savedMeme: createMemeImage())
+    }
+    
     
 }
 
