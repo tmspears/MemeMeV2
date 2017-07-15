@@ -17,7 +17,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var toolBar: UIToolbar!
-    
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     // Default Text Settings
     let textSettings: [String: Any] = [
@@ -41,6 +42,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
         subscribeToKeyboardNotifications()
+        
+        //shareButton.isEnabled = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -65,7 +68,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
 
-    // UI Actions
+    // Select Image IB Actions
     @IBAction func selectMemeImage(_ sender: Any) {
         
         let selectImageController = UIImagePickerController()
@@ -81,13 +84,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         usePhotoImageController.delegate = self
         present(usePhotoImageController,animated: true, completion: nil)
     }
-
+   
     // Image Picker delegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             memeImageView.image = pickedImage
+            
+            //shareButton.isEnabled = true
         }
+        
         picker.dismiss(animated: true, completion: nil)
     }
 
@@ -162,8 +168,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
     }
     
-    // Store Meme Object
-    
+    // Store Meme object and methods
     func createMemeImage() -> UIImage {
         
         // Hide navigation and tool bars
@@ -183,11 +188,37 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return memeCreated
     }
     
-    func tempSaveMeme() {
+    func saveMeme() -> Meme {
     
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memeImageView.image!, savedMeme: createMemeImage())
+        return Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memeImageView.image!, savedMeme: createMemeImage())
     }
     
-    
+    // Share Meme
+    @IBAction func shareMeme(_ sender: Any) {
+        
+        //set up image of meme to be shared
+        let meme = saveMeme()
+        let sharedImage = [ meme.savedMeme ]
+        
+        // launch activity view controller
+        let activityViewController = UIActivityViewController(activityItems: sharedImage, applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [
+            UIActivityType.copyToPasteboard,
+            UIActivityType.airDrop,
+            UIActivityType.addToReadingList,
+            UIActivityType.assignToContact,
+            UIActivityType.openInIBooks,
+            UIActivityType.print]
+        activityViewController.completionWithItemsHandler = {
+            activityType, completed, returnedItems, activityError in
+            if completed {
+                let meme = self.saveMeme()
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        self.present(activityViewController, animated: true,completion: nil)
+    }
+
+
 }
 

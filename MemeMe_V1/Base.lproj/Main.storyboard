@@ -63,7 +63,11 @@
                                 <rect key="frame" x="0.0" y="25" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="5LT-it-5aU">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="ARY-g9-rWI"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="ARY-g9-rWI">
+                                            <connections>
+                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="vSP-W0-pV4"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="VfX-ur-oZk"/>
                                     </navigationItem>
                                 </items>
@@ -92,8 +96,10 @@
                     <connections>
                         <outlet property="bottomTextField" destination="BQK-BD-9Av" id="2Qf-IT-7SR"/>
                         <outlet property="cameraButton" destination="55b-dp-iDd" id="mlW-TE-Zxf"/>
+                        <outlet property="cancelButton" destination="VfX-ur-oZk" id="VUe-hw-8Vo"/>
                         <outlet property="memeImageView" destination="Te3-2b-f5F" id="7x9-H5-KFo"/>
                         <outlet property="navBar" destination="PrY-wS-OHV" id="qPa-Pr-Uyu"/>
+                        <outlet property="shareButton" destination="ARY-g9-rWI" id="Ahh-A4-nvz"/>
                         <outlet property="toolBar" destination="KSh-j4-Lz2" id="X5O-sE-w5R"/>
                         <outlet property="topTextField" destination="23K-0g-ghf" id="HyI-Em-Jji"/>
                     </connections>
