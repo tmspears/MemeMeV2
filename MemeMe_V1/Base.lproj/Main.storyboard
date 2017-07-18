@@ -65,7 +65,7 @@
                                     <navigationItem id="5LT-it-5aU">
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="ARY-g9-rWI">
                                             <connections>
-                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="vSP-W0-pV4"/>
+                                                <action selector="shareButtonSelected:" destination="BYZ-38-t0r" id="cdg-BX-vvD"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="VfX-ur-oZk"/>

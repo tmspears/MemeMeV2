@@ -29,10 +29,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // Struct to hold Meme
     struct Meme {
-        let topText: String
-        let bottomText: String
-        let originalImage: UIImage
-        let savedMeme: UIImage
+        var topText: String
+        var bottomText: String
+        var originalImage: UIImage
+        var savedMeme: UIImage
+        
+        init(top: String, bottom: String, image: UIImage, savedMeme: UIImage) {
+            self.topText = top
+            self.bottomText = bottom
+            self.originalImage = image
+            self.savedMeme = savedMeme
+        }
     }
     
     // MARK: lifecycle
@@ -43,7 +50,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         subscribeToKeyboardNotifications()
         
-        //shareButton.isEnabled = false
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -65,6 +72,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomTextField.text = "BOTTOM"
         topTextField.textAlignment = .center
         bottomTextField.textAlignment = .center
+        
+        shareButton.isEnabled = false
     }
 
 
@@ -91,7 +100,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             memeImageView.image = pickedImage
             
-            //shareButton.isEnabled = true
+            shareButton.isEnabled = true
         }
         
         picker.dismiss(animated: true, completion: nil)
@@ -168,8 +177,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
     }
     
-    // Store Meme object and methods
-    func createMemeImage() -> UIImage {
+    // Create meme image from slected image and text fields
+    func combineMemeElementsAsImage() -> UIImage {
+        
+        //error handling
+        print("combineMemeElementsAsImage function started")
         
         // Hide navigation and tool bars
         navBar.isHidden = true
@@ -178,47 +190,48 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
-        let memeCreated:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        let memeImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         // Show navigation and tool bars again
         navBar.isHidden = false
         toolBar.isHidden = false
         
-        return memeCreated
+        return memeImage
     }
     
-    func saveMeme() -> Meme {
-    
-        return Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memeImageView.image!, savedMeme: createMemeImage())
+    //save meme image into meme struct
+    //Does not seem to be needed for project but part of Udacity instructions...
+    func saveMeme() {
+        let meme = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: memeImageView.image!, savedMeme: combineMemeElementsAsImage())
     }
     
-    // Share Meme
-    @IBAction func shareMeme(_ sender: Any) {
+    //share meme with activity view
+    @IBAction func shareButtonSelected(_ sender: UIBarButtonItem) {
         
-        //set up image of meme to be shared
-        let meme = saveMeme()
-        let sharedImage = [ meme.savedMeme ]
+        let memeToShare = combineMemeElementsAsImage()
         
-        // launch activity view controller
-        let activityViewController = UIActivityViewController(activityItems: sharedImage, applicationActivities: nil)
-        activityViewController.excludedActivityTypes = [
+        let activityVC = UIActivityViewController(activityItems: [memeToShare], applicationActivities: nil)
+        
+        activityVC.excludedActivityTypes = [
             UIActivityType.copyToPasteboard,
             UIActivityType.airDrop,
             UIActivityType.addToReadingList,
             UIActivityType.assignToContact,
             UIActivityType.openInIBooks,
             UIActivityType.print]
-        activityViewController.completionWithItemsHandler = {
-            activityType, completed, returnedItems, activityError in
+        
+        self.present(activityVC, animated: true,completion: nil)
+        
+        activityVC.completionWithItemsHandler = {
+            activityType, completed, returenedItems, activityError in
             if completed {
-                let meme = self.saveMeme()
+                self.saveMeme()
                 self.dismiss(animated: true, completion: nil)
             }
         }
-        self.present(activityViewController, animated: true,completion: nil)
+        
     }
-
 
 }
 
