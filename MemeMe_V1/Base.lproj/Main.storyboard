@@ -68,7 +68,11 @@
                                                 <action selector="shareButtonSelected:" destination="BYZ-38-t0r" id="cdg-BX-vvD"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="VfX-ur-oZk"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="VfX-ur-oZk">
+                                            <connections>
+                                                <action selector="cancelButtonSelected:" destination="BYZ-38-t0r" id="Zsc-gH-ArP"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

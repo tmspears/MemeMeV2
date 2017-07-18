@@ -232,6 +232,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
     }
+    
+    // set app to initial conditions when cancel button is selected
+    @IBAction func cancelButtonSelected(_ sender: UIBarButtonItem) {
+        
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
+        memeImageView.image = nil
+        shareButton.isEnabled = false
+    }
+    
 
 }
 
