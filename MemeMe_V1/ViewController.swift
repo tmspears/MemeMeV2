@@ -77,7 +77,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
 
-    // Select Image IB Actions
+    // Select Image from album
     @IBAction func selectMemeImage(_ sender: Any) {
         
         let selectImageController = UIImagePickerController()
@@ -86,6 +86,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(selectImageController, animated: true, completion: nil)
     }
     
+    //Use camera for image
     @IBAction func useCameraForImage(_ sender: Any) {
         
         let usePhotoImageController = UIImagePickerController()
