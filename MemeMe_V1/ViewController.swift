@@ -33,13 +33,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var bottomText: String
         var originalImage: UIImage
         var savedMeme: UIImage
-        
-        init(top: String, bottom: String, image: UIImage, savedMeme: UIImage) {
-            self.topText = top
-            self.bottomText = bottom
-            self.originalImage = image
-            self.savedMeme = savedMeme
-        }
     }
     
     // MARK: lifecycle
@@ -204,7 +197,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //save meme image into meme struct
     //Does not seem to be needed for project but part of Udacity instructions...
     func saveMeme() {
-        let meme = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: memeImageView.image!, savedMeme: combineMemeElementsAsImage())
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memeImageView.image!, savedMeme: combineMemeElementsAsImage())
     }
     
     //share meme with activity view
