@@ -12,6 +12,7 @@
 		227F814B1F13DC6500459D34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227F81491F13DC6500459D34 /* Main.storyboard */; };
 		227F814D1F13DC6500459D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 227F814C1F13DC6500459D34 /* Assets.xcassets */; };
 		227F81501F13DC6500459D34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227F814E1F13DC6500459D34 /* LaunchScreen.storyboard */; };
+		22D0A3F11F1FD73F00098B7F /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22D0A3F01F1FD73F00098B7F /* Impact.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		227F814C1F13DC6500459D34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		227F814F1F13DC6500459D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		227F81511F13DC6500459D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22D0A3F01F1FD73F00098B7F /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impact.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		227F81441F13DC6500459D34 /* MemeMe_V1 */ = {
 			isa = PBXGroup;
 			children = (
+				22D0A3F01F1FD73F00098B7F /* Impact.ttf */,
 				227F81451F13DC6500459D34 /* AppDelegate.swift */,
 				227F81471F13DC6500459D34 /* ViewController.swift */,
 				227F81491F13DC6500459D34 /* Main.storyboard */,
@@ -124,6 +127,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22D0A3F11F1FD73F00098B7F /* Impact.ttf in Resources */,
 				227F81501F13DC6500459D34 /* LaunchScreen.storyboard in Resources */,
 				227F814D1F13DC6500459D34 /* Assets.xcassets in Resources */,
 				227F814B1F13DC6500459D34 /* Main.storyboard in Resources */,
@@ -302,6 +306,7 @@
 				227F81561F13DC6500459D34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

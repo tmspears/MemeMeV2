@@ -24,8 +24,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let textSettings: [String: Any] = [
         NSStrokeColorAttributeName: UIColor .black,
         NSForegroundColorAttributeName: UIColor .white,
-        NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : -2.0]
+        NSFontAttributeName: UIFont(name: "Impact", size: 40)!,
+        NSStrokeWidthAttributeName : -3.5]
     
     // Struct to hold Meme
     struct Meme {
