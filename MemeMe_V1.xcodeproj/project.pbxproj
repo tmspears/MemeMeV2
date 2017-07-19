@@ -13,6 +13,7 @@
 		227F814D1F13DC6500459D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 227F814C1F13DC6500459D34 /* Assets.xcassets */; };
 		227F81501F13DC6500459D34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227F814E1F13DC6500459D34 /* LaunchScreen.storyboard */; };
 		22D0A3F11F1FD73F00098B7F /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22D0A3F01F1FD73F00098B7F /* Impact.ttf */; };
+		22D0A3F31F1FDDB700098B7F /* MemeStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D0A3F21F1FDDB700098B7F /* MemeStructs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		227F814F1F13DC6500459D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		227F81511F13DC6500459D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22D0A3F01F1FD73F00098B7F /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impact.ttf; sourceTree = "<group>"; };
+		22D0A3F21F1FDDB700098B7F /* MemeStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeStructs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				227F814C1F13DC6500459D34 /* Assets.xcassets */,
 				227F814E1F13DC6500459D34 /* LaunchScreen.storyboard */,
 				227F81511F13DC6500459D34 /* Info.plist */,
+				22D0A3F21F1FDDB700098B7F /* MemeStructs.swift */,
 			);
 			path = MemeMe_V1;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				227F81481F13DC6500459D34 /* ViewController.swift in Sources */,
 				227F81461F13DC6500459D34 /* AppDelegate.swift in Sources */,
+				22D0A3F31F1FDDB700098B7F /* MemeStructs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

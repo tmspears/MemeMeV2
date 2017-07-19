@@ -29,15 +29,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSFontAttributeName: UIFont(name: "Impact", size: 40)!,
         NSStrokeWidthAttributeName : -3.5]
     
-    // MARK: - Meme Struct
-    
-    struct Meme {
-        var topText: String
-        var bottomText: String
-        var originalImage: UIImage
-        var savedMeme: UIImage
-    }
-    
     // MARK: - Lifecycle methods
     
     override func viewWillAppear(_ animated: Bool) {
