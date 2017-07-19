@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
-    // IB Outlets
+    // MARK: - Outlets
+    
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var memeImageView: UIImageView!
     @IBOutlet weak var topTextField: UITextField!
@@ -20,14 +21,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
-    // Default Text Settings
+    // MARK: - Default Text Settings
+    
     let textSettings: [String: Any] = [
         NSStrokeColorAttributeName: UIColor .black,
         NSForegroundColorAttributeName: UIColor .white,
         NSFontAttributeName: UIFont(name: "Impact", size: 40)!,
         NSStrokeWidthAttributeName : -3.5]
     
-    // Struct to hold Meme
+    // MARK: - Meme Struct
+    
     struct Meme {
         var topText: String
         var bottomText: String
@@ -35,24 +38,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var savedMeme: UIImage
     }
     
-    // MARK: lifecycle
+    // MARK: - Lifecycle methods
+    
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
         
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
         subscribeToKeyboardNotifications()
-        
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        
         super.viewWillDisappear(animated)
         
         unsubscribeFromKeyboardNotifications()
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         topTextField.delegate = self
@@ -68,7 +73,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         shareButton.isEnabled = false
     }
-
+    
+//TODO function for picking image
 
     // Select Image from album
     @IBAction func selectMemeImage(_ sender: Any) {
@@ -88,7 +94,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(usePhotoImageController,animated: true, completion: nil)
     }
    
-    // Image Picker delegate
+    // MARK - Image Picker Delegate
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -105,7 +112,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.dismiss(animated: true, completion: nil)
     }
     
-    // Text Field Delegate
+    // MARK: - Text Field Delegate
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if let meme = textField.text {
             if meme == "TOP" || meme == "BOTTOM" {
@@ -138,7 +146,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return true
     }
     
-    // Adjust Image Position With Keyboard
+    // MARK - Keyboard Adjustment
     func getKeyboardHeight(_ notification: Notification) -> CGFloat {
         
         let userInfo = notification.userInfo
@@ -171,7 +179,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
     }
     
-    // Create meme image from slected image and text fields
+    // MARK - Create Meme Image
+    
     func combineMemeElementsAsImage() -> UIImage {
         
         //error handling
@@ -194,13 +203,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return memeImage
     }
     
-    //save meme image into meme struct
+    // MARK: - Save Meme
+    
     //Does not seem to be needed for project but part of Udacity instructions...
     func saveMeme() {
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memeImageView.image!, savedMeme: combineMemeElementsAsImage())
     }
     
-    //share meme with activity view
+    
+    // MARK: - Share Meme
+    
     @IBAction func shareButtonSelected(_ sender: UIBarButtonItem) {
         
         let memeToShare = combineMemeElementsAsImage()
@@ -227,7 +239,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    // set app to initial conditions when cancel button is selected
+    // MARK: - Reset Application
+    
     @IBAction func cancelButtonSelected(_ sender: UIBarButtonItem) {
         
         topTextField.text = "TOP"
