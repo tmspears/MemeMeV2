@@ -184,9 +184,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // MARK: - Save Meme
     
-    // Does not seem to be needed for project but part of Udacity instructions...
     func saveMeme() {
+        // create meme
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memeImageView.image!, savedMeme: combineMemeElementsAsImage())
+        // add meme to meme array in app delegate
+        let object = UIApplication.shared.delegate
+        let sharedModel = object as! AppDelegate
+        sharedModel.memes.append(meme)
     }
     
     // MARK: - IB Actions
