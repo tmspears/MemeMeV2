@@ -58,14 +58,14 @@
 		227F81441F13DC6500459D34 /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
-				22D0A3F01F1FD73F00098B7F /* Impact.ttf */,
 				227F81451F13DC6500459D34 /* AppDelegate.swift */,
-				227F81471F13DC6500459D34 /* ViewController.swift */,
 				227F81491F13DC6500459D34 /* Main.storyboard */,
+				227F81471F13DC6500459D34 /* ViewController.swift */,
+				22D0A3F21F1FDDB700098B7F /* MemeStructs.swift */,
 				227F814C1F13DC6500459D34 /* Assets.xcassets */,
+				22D0A3F01F1FD73F00098B7F /* Impact.ttf */,
 				227F814E1F13DC6500459D34 /* LaunchScreen.storyboard */,
 				227F81511F13DC6500459D34 /* Info.plist */,
-				22D0A3F21F1FDDB700098B7F /* MemeStructs.swift */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";
