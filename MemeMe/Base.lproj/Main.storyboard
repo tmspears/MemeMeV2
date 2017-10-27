@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rle-la-y2J">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -72,7 +72,14 @@
                             <outlet property="delegate" destination="xb5-2H-6SK" id="mT7-gl-RVT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="5y1-UI-kIr"/>
+                    <navigationItem key="navigationItem" id="5y1-UI-kIr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rs5-eJ-Hgf">
+                            <connections>
+                                <action selector="addMemeButton:" destination="xb5-2H-6SK" id="Uk0-wA-04s"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="AddMemeSegue" id="fkV-fG-TcG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sb8-CM-3zy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

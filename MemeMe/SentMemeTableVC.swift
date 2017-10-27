@@ -10,6 +10,21 @@ import Foundation
 
 import UIKit
 
-class SentMemeTableVC {
+class SentMemeTableVC: UIViewController {
+    // MARK - Properties
+    var memes: [Meme]!
+    
+    
+    // MARK - Outlets
+    
+    // MARK - Lifecycle
+    
+    // MARK - IB Actions
+    @IBAction func addMemeButton(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "AddMemeSegue", sender: self)
+    }
+    
+    // MARK - Table Delegate
+    
     
 }
