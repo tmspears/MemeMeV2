@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		227F81421F13DC6500459D34 /* MemeMe_V1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe_V1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		227F81421F13DC6500459D34 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		227F81451F13DC6500459D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		227F81471F13DC6500459D34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		227F814A1F13DC6500459D34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		227F81391F13DC6500459D34 = {
 			isa = PBXGroup;
 			children = (
-				227F81441F13DC6500459D34 /* MemeMe_V1 */,
+				227F81441F13DC6500459D34 /* MemeMe */,
 				227F81431F13DC6500459D34 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,12 +50,12 @@
 		227F81431F13DC6500459D34 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				227F81421F13DC6500459D34 /* MemeMe_V1.app */,
+				227F81421F13DC6500459D34 /* MemeMe.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		227F81441F13DC6500459D34 /* MemeMe_V1 */ = {
+		227F81441F13DC6500459D34 /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
 				22D0A3F01F1FD73F00098B7F /* Impact.ttf */,
@@ -67,15 +67,15 @@
 				227F81511F13DC6500459D34 /* Info.plist */,
 				22D0A3F21F1FDDB700098B7F /* MemeStructs.swift */,
 			);
-			path = MemeMe_V1;
+			path = MemeMe;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		227F81411F13DC6500459D34 /* MemeMe_V1 */ = {
+		227F81411F13DC6500459D34 /* MemeMe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 227F81541F13DC6500459D34 /* Build configuration list for PBXNativeTarget "MemeMe_V1" */;
+			buildConfigurationList = 227F81541F13DC6500459D34 /* Build configuration list for PBXNativeTarget "MemeMe" */;
 			buildPhases = (
 				227F813E1F13DC6500459D34 /* Sources */,
 				227F813F1F13DC6500459D34 /* Frameworks */,
@@ -85,9 +85,9 @@
 			);
 			dependencies = (
 			);
-			name = MemeMe_V1;
+			name = MemeMe;
 			productName = MemeMe_V1;
-			productReference = 227F81421F13DC6500459D34 /* MemeMe_V1.app */;
+			productReference = 227F81421F13DC6500459D34 /* MemeMe.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -107,7 +107,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 227F813D1F13DC6500459D34 /* Build configuration list for PBXProject "MemeMe_V1" */;
+			buildConfigurationList = 227F813D1F13DC6500459D34 /* Build configuration list for PBXProject "MemeMe" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -120,7 +120,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				227F81411F13DC6500459D34 /* MemeMe_V1 */,
+				227F81411F13DC6500459D34 /* MemeMe */,
 			);
 		};
 /* End PBXProject section */
@@ -270,7 +270,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8EVAVZKARD;
-				INFOPLIST_FILE = MemeMe_V1/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MemeMe/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Tim.MemeMe-V1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -283,7 +283,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8EVAVZKARD;
-				INFOPLIST_FILE = MemeMe_V1/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MemeMe/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Tim.MemeMe-V1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -294,7 +294,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		227F813D1F13DC6500459D34 /* Build configuration list for PBXProject "MemeMe_V1" */ = {
+		227F813D1F13DC6500459D34 /* Build configuration list for PBXProject "MemeMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				227F81521F13DC6500459D34 /* Debug */,
@@ -303,7 +303,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		227F81541F13DC6500459D34 /* Build configuration list for PBXNativeTarget "MemeMe_V1" */ = {
+		227F81541F13DC6500459D34 /* Build configuration list for PBXNativeTarget "MemeMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				227F81551F13DC6500459D34 /* Debug */,
