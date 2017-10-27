@@ -24,10 +24,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: - Default Text Settings
     
     let textSettings: [String: Any] = [
-        NSStrokeColorAttributeName: UIColor .black,
-        NSForegroundColorAttributeName: UIColor .white,
-        NSFontAttributeName: UIFont(name: "Impact", size: 40)!,
-        NSStrokeWidthAttributeName : -3.5]
+        NSAttributedStringKey.strokeColor.rawValue: UIColor .black,
+        NSAttributedStringKey.foregroundColor.rawValue: UIColor .white,
+        NSAttributedStringKey.font.rawValue: UIFont(name: "Impact", size: 40)!,
+        NSAttributedStringKey.strokeWidth.rawValue : -3.5]
     
     // MARK: - Lifecycle methods
     
@@ -132,7 +132,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return keyboardSize.cgRectValue.height
     }
     
-    func keyboardWillShow(_ notification: Notification) {
+    @objc func keyboardWillShow(_ notification: Notification) {
         
         // implementation based upon Udacity forum post:
         // https://discussions.udacity.com/t/better-way-to-shift-the-view-for-keyboardwillshow-and-keyboardwillhide/36558
@@ -141,7 +141,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    func keyboardWillHide(notification: Notification) {
+    @objc func keyboardWillHide(notification: Notification) {
         
         if bottomTextField.isFirstResponder {
             view.frame.origin.y = 0
