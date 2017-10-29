@@ -16,6 +16,7 @@ class SentMemeTableVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     
     // MARK - Outlets
+    @IBOutlet weak var sentMemeTableView: UITableView!
     
     // MARK - Lifecycle
     
@@ -23,6 +24,8 @@ class SentMemeTableVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         let sharedModel = UIApplication.shared.delegate as! AppDelegate
         memes = sharedModel.memes
+        
+        sentMemeTableView.reloadData()
     }
     
     // MARK - IB Actions
@@ -37,8 +40,10 @@ class SentMemeTableVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let meme = self.memes[(indexPath as NSIndexPath).row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemeCell", for: indexPath)
+        
+        let meme = self.memes[(indexPath as NSIndexPath).row]
 
         cell.imageView?.image = meme.savedMeme
         cell.textLabel?.text = meme.topText + " " + meme.bottomText
