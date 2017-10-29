@@ -52,7 +52,7 @@
         <!--Sent Meme TableVC-->
         <scene sceneID="3W1-aB-VLm">
             <objects>
-                <tableViewController id="xb5-2H-6SK" customClass="SentMemeTableVC" sceneMemberID="viewController">
+                <tableViewController id="xb5-2H-6SK" customClass="SentMemeTableVC" customModule="MemeMe" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="E5v-hj-aku">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="-1936" y="467"/>
         </scene>
-        <!--Sent Meme CollectionVC-->
+        <!--Collection View Controller-->
         <scene sceneID="B1q-nO-LEf">
             <objects>
-                <collectionViewController id="H7g-FD-4BH" customClass="SentMemeCollectionVC" sceneMemberID="viewController">
+                <collectionViewController id="H7g-FD-4BH" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="vJr-gz-mpi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
