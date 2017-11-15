@@ -58,13 +58,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeCell" id="hLT-pv-8mk">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemeCell" rowHeight="120" id="hLT-pv-8mk" customClass="MemeTableViewCell" customModule="MemeMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hLT-pv-8mk" id="0vf-wy-fSk">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFP-Ne-Dsk">
+                                            <rect key="frame" x="152" y="11" width="181" height="52"/>
+                                            <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="32"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jB4-ck-Tj1">
+                                            <rect key="frame" x="16" y="0.0" width="128" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="128" id="eyi-mC-UFL"/>
+                                                <constraint firstAttribute="width" constant="128" id="fzP-Sz-Z7O"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbd-k3-7Wk">
+                                            <rect key="frame" x="152" y="71" width="181" height="38"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="38" id="XvN-xW-9FV"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="32"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Vbd-k3-7Wk" firstAttribute="top" secondItem="NFP-Ne-Dsk" secondAttribute="bottom" constant="8" symbolic="YES" id="4UD-h1-eaq"/>
+                                        <constraint firstItem="Vbd-k3-7Wk" firstAttribute="bottom" secondItem="0vf-wy-fSk" secondAttribute="bottomMargin" id="AwB-6l-PFP"/>
+                                        <constraint firstItem="jB4-ck-Tj1" firstAttribute="leading" secondItem="0vf-wy-fSk" secondAttribute="leading" constant="16" id="KHv-j9-Xcr"/>
+                                        <constraint firstItem="NFP-Ne-Dsk" firstAttribute="top" secondItem="0vf-wy-fSk" secondAttribute="topMargin" id="RE1-dJ-LCJ"/>
+                                        <constraint firstItem="NFP-Ne-Dsk" firstAttribute="leading" secondItem="jB4-ck-Tj1" secondAttribute="trailing" constant="8" id="VMZ-hu-aaO"/>
+                                        <constraint firstItem="Vbd-k3-7Wk" firstAttribute="leading" secondItem="jB4-ck-Tj1" secondAttribute="trailing" constant="8" id="qc1-Fr-aPL"/>
+                                        <constraint firstItem="jB4-ck-Tj1" firstAttribute="top" secondItem="0vf-wy-fSk" secondAttribute="top" id="rCW-hO-1IO"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="NFP-Ne-Dsk" secondAttribute="trailing" constant="42" id="nJt-ly-epR"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vbd-k3-7Wk" secondAttribute="trailing" constant="42" id="txq-rf-PYw"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="cellBottomLabel" destination="Vbd-k3-7Wk" id="9gl-nZ-zbB"/>
+                                    <outlet property="cellImage" destination="jB4-ck-Tj1" id="nen-7G-Zxr"/>
+                                    <outlet property="cellTopLabel" destination="NFP-Ne-Dsk" id="0J5-du-nZ3"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -86,7 +128,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sb8-CM-3zy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1199" y="-225"/>
+            <point key="canvasLocation" x="-1199.2" y="-225.33733133433284"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ApG-qJ-xIO">
