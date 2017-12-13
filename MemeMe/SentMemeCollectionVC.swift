@@ -17,6 +17,7 @@ class SentMemeCollectionVC: UICollectionViewController {
     
     // MARK - Outlets
     @IBOutlet weak var sentMemeCollectionView: UICollectionView!
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     // MARK - Lifecycle
     
@@ -28,10 +29,23 @@ class SentMemeCollectionVC: UICollectionViewController {
         sentMemeCollectionView.reloadData()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let space:CGFloat = 3.0
+        let widthDimension = (view.frame.size.width - (2 * space)) / 3.0
+        let heightDimension = (view.frame.size.height - (2 * space)) / 3.0
+        
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSize(width: widthDimension, height: heightDimension)
+    }
+    
     // MARK - IB Actions
 
-    
-    
+    @IBAction func addMemeButton(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "AddMemeSegue", sender: self)
+    }
     //MARK - Collection Delegate
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

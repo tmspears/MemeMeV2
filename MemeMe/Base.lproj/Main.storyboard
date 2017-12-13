@@ -195,11 +195,13 @@
                     <navigationItem key="navigationItem" id="NBF-NQ-qTo">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="IXx-91-Mez">
                             <connections>
-                                <action selector="addMemeButton:" destination="H7g-FD-4BH" id="Odz-to-qGe"/>
+                                <action selector="addMemeButton:" destination="H7g-FD-4BH" id="vwc-IK-sGY"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="AddMemeSegue" id="zSB-ex-xgE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="flowLayout" destination="cz9-j1-Nux" id="kDy-LE-dNK"/>
                         <outlet property="sentMemeCollectionView" destination="vJr-gz-mpi" id="z8y-U9-WOG"/>
                     </connections>
                 </collectionViewController>
@@ -346,4 +348,7 @@
         <image name="collection_30x30" width="30" height="30"/>
         <image name="table_30x30" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zSB-ex-xgE"/>
+    </inferredMetricsTieBreakers>
 </document>
