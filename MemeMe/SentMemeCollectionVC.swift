@@ -28,17 +28,29 @@ class SentMemeCollectionVC: UICollectionViewController {
         
         sentMemeCollectionView.reloadData()
     }
+
+    func collectionLayOutDimensions(rows: Int, columns: Int, spacing: CGFloat) {
+        // using intended number of rows and columns, function sets collection flow layout
+        
+        let dimensionWidth = (view.frame.size.width - (CGFloat(rows - 1) * spacing)) / CGFloat(rows)
+        let dimensionHeight = (view.frame.size.height - (CGFloat(columns - 1) * spacing)) / CGFloat(columns)
+        
+        flowLayout.minimumInteritemSpacing = spacing
+        flowLayout.minimumLineSpacing = spacing
+        flowLayout.itemSize = CGSize(width: dimensionWidth, height: dimensionHeight)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let space:CGFloat = 3.0
-        let widthDimension = (view.frame.size.width - (2 * space)) / 3.0
-        let heightDimension = (view.frame.size.height - (2 * space)) / 3.0
-        
-        flowLayout.minimumInteritemSpacing = space
-        flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSize(width: widthDimension, height: heightDimension)
+
+        if view.frame.size.width < view.frame.size.height {
+            // Collection layout in portrait mode
+            collectionLayOutDimensions(rows: 3, columns: 4, spacing: 2.0)
+        } else {
+            //Collection layout in landscape
+            collectionLayOutDimensions(rows: 5, columns: 2, spacing: 2.0)
+        }
+
     }
     
     // MARK - IB Actions
