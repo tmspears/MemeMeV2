@@ -149,28 +149,42 @@
             </objects>
             <point key="canvasLocation" x="-1936" y="467"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Sent Meme CollectionVC-->
         <scene sceneID="B1q-nO-LEf">
             <objects>
-                <collectionViewController id="H7g-FD-4BH" sceneMemberID="viewController">
+                <collectionViewController id="H7g-FD-4BH" customClass="SentMemeCollectionVC" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="vJr-gz-mpi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cz9-j1-Nux">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="182" height="153"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Z1D-3b-rGR">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MemeCollectionViewCell" reuseIdentifier="MemeCell" id="Z1D-3b-rGR" customClass="MemeColectionViewCell" customModule="MemeMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="182" height="153"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="182" height="153"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5zf-co-i2A">
+                                            <rect key="frame" x="9" y="9" width="163" height="135"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottomMargin" secondItem="5zf-co-i2A" secondAttribute="bottom" constant="1" id="KF6-Dc-6b1"/>
+                                    <constraint firstItem="5zf-co-i2A" firstAttribute="leading" secondItem="Z1D-3b-rGR" secondAttribute="leadingMargin" constant="1" id="Vg7-Kr-OWE"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="5zf-co-i2A" secondAttribute="trailing" constant="2" id="rWH-w7-F6Z"/>
+                                    <constraint firstItem="5zf-co-i2A" firstAttribute="top" secondItem="Z1D-3b-rGR" secondAttribute="topMargin" constant="1" id="wbh-Zq-fn7"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="cellImage" destination="5zf-co-i2A" id="l8Q-WH-0cI"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -178,11 +192,20 @@
                             <outlet property="delegate" destination="H7g-FD-4BH" id="ofQ-P7-Zbt"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="NBF-NQ-qTo"/>
+                    <navigationItem key="navigationItem" id="NBF-NQ-qTo">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="IXx-91-Mez">
+                            <connections>
+                                <action selector="addMemeButton:" destination="H7g-FD-4BH" id="Odz-to-qGe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sentMemeCollectionView" destination="vJr-gz-mpi" id="z8y-U9-WOG"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hZ-EZ-lcj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1154" y="484"/>
+            <point key="canvasLocation" x="-1154.4000000000001" y="483.50824587706148"/>
         </scene>
         <!--Meme Editor View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -284,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-338" y="347"/>
+            <point key="canvasLocation" x="-324" y="130"/>
         </scene>
         <!--Meme Details-->
         <scene sceneID="D28-dt-xuP">
