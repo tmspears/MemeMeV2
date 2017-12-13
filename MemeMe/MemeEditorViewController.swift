@@ -19,7 +19,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
-    @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     // MARK: - Default Text Settings
     
@@ -241,6 +240,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         prepareTextField(textField: bottomTextField, defaultText: "BOTTOM")
         memeImageView.image = nil
         shareButton.isEnabled = false
+        
+        dismiss(animated: true, completion: nil)
     }
     
 

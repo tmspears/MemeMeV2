@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="-1926" y="-210"/>
         </scene>
-        <!--Sent Meme TableVC-->
+        <!--Sent Memes-->
         <scene sceneID="3W1-aB-VLm">
             <objects>
-                <tableViewController id="xb5-2H-6SK" customClass="SentMemeTableVC" customModule="MemeMe" sceneMemberID="viewController">
+                <tableViewController title="Sent Memes" id="xb5-2H-6SK" customClass="SentMemeTableVC" customModule="MemeMe" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="E5v-hj-aku">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -149,10 +149,10 @@
             </objects>
             <point key="canvasLocation" x="-1936" y="467"/>
         </scene>
-        <!--Sent Meme CollectionVC-->
+        <!--Sent Memes-->
         <scene sceneID="B1q-nO-LEf">
             <objects>
-                <collectionViewController id="H7g-FD-4BH" customClass="SentMemeCollectionVC" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Sent Memes" id="H7g-FD-4BH" customClass="SentMemeCollectionVC" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="vJr-gz-mpi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -255,7 +255,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="VfX-ur-oZk">
                                             <connections>
-                                                <action selector="cancelButtonSelected:" destination="BYZ-38-t0r" id="Zsc-gH-ArP"/>
+                                                <action selector="cancelButtonSelected:" destination="BYZ-38-t0r" id="nGR-jY-BUE"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -299,7 +299,6 @@
                     <connections>
                         <outlet property="bottomTextField" destination="BQK-BD-9Av" id="2Qf-IT-7SR"/>
                         <outlet property="cameraButton" destination="55b-dp-iDd" id="mlW-TE-Zxf"/>
-                        <outlet property="cancelButton" destination="VfX-ur-oZk" id="VUe-hw-8Vo"/>
                         <outlet property="memeImageView" destination="Te3-2b-f5F" id="7x9-H5-KFo"/>
                         <outlet property="navBar" destination="PrY-wS-OHV" id="qPa-Pr-Uyu"/>
                         <outlet property="shareButton" destination="ARY-g9-rWI" id="Ahh-A4-nvz"/>
