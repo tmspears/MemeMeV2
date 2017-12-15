@@ -30,7 +30,7 @@ class SentMemeTableVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     // MARK - IB Actions
     @IBAction func addMemeButton(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "AddMemeSegue", sender: self)
+        performSegue(withIdentifier: "AddMemeSegue", sender: self)
     }
     
     // MARK - Table Delegate
