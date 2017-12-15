@@ -47,8 +47,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topTextField.delegate = self
-        bottomTextField.delegate = self
+        
         
         prepareTextField(textField: topTextField, defaultText: "TOP")
         prepareTextField(textField: bottomTextField, defaultText: "BOTTOM")
@@ -116,6 +115,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // sets intial settings for text fields
     func prepareTextField(textField: UITextField, defaultText: String) {
+        
+        topTextField.delegate = self
+        bottomTextField.delegate = self
         
         textField.defaultTextAttributes = textSettings
         textField.text = defaultText
