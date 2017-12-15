@@ -130,23 +130,22 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
-        return keyboardSize.cgRectValue.height
+        if bottomTextField.isFirstResponder {
+            return keyboardSize.cgRectValue.height
+        } else {
+            return 0
+        }
     }
     
-    @objc func keyboardWillShow(_ notification: Notification) {
+    func keyboardWillShow(_ notification: Notification) {
         
-        // implementation based upon Udacity forum post:
-        // https://discussions.udacity.com/t/better-way-to-shift-the-view-for-keyboardwillshow-and-keyboardwillhide/36558
-        if bottomTextField.isFirstResponder {
-            view.frame.origin.y = getKeyboardHeight(notification) * -1
-        }
+        // implementation based upon Udacity code review advice:
+        view.frame.origin.y = getKeyboardHeight(notification) * -1
     }
     
     @objc func keyboardWillHide(notification: Notification) {
         
-        if bottomTextField.isFirstResponder {
-            view.frame.origin.y = 0
-        }
+        view.frame.origin.y = 0
     }
     
     func subscribeToKeyboardNotifications() {
